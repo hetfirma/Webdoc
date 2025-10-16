@@ -200,5 +200,3 @@ Bestandsstructuur:
 > Het combineert semantiek, interoperabiliteit en browsercompatibiliteit — zonder afhankelijkheid van één leverancier.
 
 ---
-
-Wil je dat ik dit mini-draft omzet in een **formele specificatie-layout (RFC-achtig document)** of als **voorbeeld-WebDoc-pakket** (ZIP met manifest + HTMLX) zodat je kunt zien hoe het in praktijk eruitziet?

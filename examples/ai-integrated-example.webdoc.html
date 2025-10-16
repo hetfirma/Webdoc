@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="nl" vocab="http://schema.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Geïntegreerd Webdoc Voorbeeld</title>
+    
+    <!-- JSON-LD Metadata -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "name": "AI-Geïntegreerd Webdoc Voorbeeld",
+        "author": {
+            "@type": "Person",
+            "name": "Maria van Dam",
+            "email": "maria@example.com",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Het Firma"
+            }
+        },
+        "datePublished": "2025-10-16T10:00:00Z",
+        "dateModified": "2025-10-16T10:00:00Z",
+        "version": "1.0.0",
+        "inLanguage": "nl",
+        "description": "Een voorbeeld van een Webdoc document met AI-agent configuratie voor geautomatiseerde verwerking",
+        "keywords": ["webdoc", "ai", "agents", "automatisering"]
+    }
+    </script>
+    
+    <!-- Document Stijl -->
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --accent-color: #0f3460;
+            --highlight-color: #16213e;
+            --text-color: #333;
+            --background-color: #f5f5f5;
+            --card-background: #ffffff;
+            --border-color: #e0e0e0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        article {
+            background: var(--card-background);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            border-bottom: 3px solid var(--accent-color);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 1rem 0;
+            font-size: 2.5rem;
+        }
+        
+        .meta {
+            display: flex;
+            gap: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .ai-feature {
+            background: #f0f8ff;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .ai-feature h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        pre code {
+            background: transparent;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <!-- Document Inhoud met RDFa annotaties -->
+    <article typeof="TechArticle">
+        <header>
+            <h1 property="headline">
+                AI-Geïntegreerd Webdoc 
+                <span class="badge">AI-Powered</span>
+            </h1>
+            <div class="meta">
+                <span>
+                    Door <span property="author" typeof="Person">
+                        <span property="name">Maria van Dam</span>
+                    </span>
+                </span>
+                <span>
+                    <time property="datePublished" datetime="2025-10-16T10:00:00Z">
+                        16 oktober 2025
+                    </time>
+                </span>
+                <span property="version">Versie 1.0.0</span>
+            </div>
+        </header>
+        
+        <div property="articleBody">
+            <section id="introduction">
+                <h2>Introductie</h2>
+                <p>
+                    Dit document demonstreert de AI-agent integratie mogelijkheden van Webdoc. 
+                    Het bevat configuratie voor verschillende AI-agents die het document kunnen 
+                    verwerken, analyseren en verrijken.
+                </p>
+            </section>
+            
+            <section id="ai-features">
+                <h2>AI Features</h2>
+                
+                <div class="ai-feature">
+                    <h3>🤖 Content Extractie</h3>
+                    <p>
+                        Een AI-agent kan de hoofdinhoud extraheren en converteren naar 
+                        verschillende formaten zoals Markdown of plain text.
+                    </p>
+                </div>
+                
+                <div class="ai-feature">
+                    <h3>📝 Automatische Samenvatting</h3>
+                    <p>
+                        AI-agents kunnen automatisch samenvattingen genereren van de 
+                        document inhoud, geschikt voor previews of indexering.
+                    </p>
+                </div>
+                
+                <div class="ai-feature">
+                    <h3>🏷️ Keyword Extractie</h3>
+                    <p>
+                        Automatische extractie van relevante trefwoorden en topics uit 
+                        de tekst voor verbeterde zoekmogelijkheden.
+                    </p>
+                </div>
+                
+                <div class="ai-feature">
+                    <h3>🌍 Vertaling</h3>
+                    <p>
+                        AI-agents kunnen het document vertalen naar andere talen, terwijl 
+                        de structuur en semantische annotaties behouden blijven.
+                    </p>
+                </div>
+            </section>
+            
+            <section id="configuration">
+                <h2>Agent Configuratie</h2>
+                <p>
+                    Dit document bevat een AI-agent configuratie sectie (zie onder aan de HTML).
+                    Deze configuratie definieert:
+                </p>
+                <ul>
+                    <li>Beschikbare agents en hun taken</li>
+                    <li>Input/output specificaties</li>
+                    <li>Workflows die agents combineren</li>
+                    <li>Privacy en security policies</li>
+                </ul>
+            </section>
+            
+            <section id="use-cases">
+                <h2>Use Cases</h2>
+                <p>
+                    AI-agents in Webdoc documenten kunnen gebruikt worden voor:
+                </p>
+                <ol>
+                    <li><strong>Content Management Systemen</strong>: Automatische verwerking en indexering</li>
+                    <li><strong>Kennisbanken</strong>: Extractie en koppeling van informatie</li>
+                    <li><strong>Publicatie Workflows</strong>: Automatische formattering en distributie</li>
+                    <li><strong>Data Analyse</strong>: Extractie van gestructureerde data</li>
+                    <li><strong>Toegankelijkheid</strong>: Automatische generatie van alt-teksten en samenvattingen</li>
+                </ol>
+            </section>
+            
+            <section id="example">
+                <h2>Voorbeeld Workflow</h2>
+                <p>
+                    Een typische AI-workflow voor dit document zou kunnen zijn:
+                </p>
+                <pre><code>1. Content Extractor → Extract hoofdinhoud
+2. Summarizer → Genereer samenvatting
+3. Keyword Analyzer → Identificeer keywords
+4. Metadata Enricher → Verrijk metadata
+5. Validator → Valideer output</code></pre>
+            </section>
+        </div>
+    </article>
+    
+    <!-- AI-Agent Configuratie -->
+    <script type="application/ld+json" id="webdoc-ai-config">
+    {
+        "@context": "https://webdoc.org/context/ai/v1",
+        "@type": "AIAgentConfiguration",
+        "version": "1.0",
+        "agents": [
+            {
+                "@type": "ContentExtractor",
+                "name": "content-extractor",
+                "purpose": "Extract main content from document",
+                "instructions": "Extract the main article content, preserving semantic structure",
+                "input": {
+                    "selector": "article[typeof='TechArticle'] div[property='articleBody']",
+                    "format": "html"
+                },
+                "output": {
+                    "format": "markdown",
+                    "location": "extracted-content"
+                }
+            },
+            {
+                "@type": "Summarizer",
+                "name": "summarizer",
+                "purpose": "Generate document summary",
+                "instructions": "Create a concise summary of the document in 2-3 sentences",
+                "input": {
+                    "selector": "article[typeof='TechArticle'] div[property='articleBody']",
+                    "format": "text"
+                },
+                "output": {
+                    "format": "text",
+                    "location": "metadata.summary"
+                },
+                "parameters": {
+                    "maxLength": 300,
+                    "style": "academic"
+                }
+            },
+            {
+                "@type": "AIAgent",
+                "name": "keyword-analyzer",
+                "purpose": "Extract relevant keywords",
+                "instructions": "Identify and extract the most relevant keywords and topics from the content",
+                "input": {
+                    "selector": "article[typeof='TechArticle']",
+                    "format": "text"
+                },
+                "output": {
+                    "format": "json",
+                    "location": "metadata.extractedKeywords"
+                },
+                "parameters": {
+                    "maxKeywords": 10,
+                    "includeScores": true
+                }
+            },
+            {
+                "@type": "Translator",
+                "name": "translator",
+                "purpose": "Translate document content",
+                "instructions": "Translate the document to the target language while preserving structure",
+                "input": {
+                    "selector": "article[typeof='TechArticle'] div[property='articleBody']",
+                    "format": "html"
+                },
+                "output": {
+                    "format": "html",
+                    "location": "translated-content"
+                },
+                "parameters": {
+                    "targetLanguage": "en",
+                    "preserveMarkup": true
+                }
+            },
+            {
+                "@type": "Validator",
+                "name": "content-validator",
+                "purpose": "Validate document structure and content",
+                "instructions": "Validate that the document follows Webdoc specifications",
+                "input": {
+                    "source": "document",
+                    "format": "html"
+                },
+                "output": {
+                    "format": "json",
+                    "location": "validation-results"
+                },
+                "parameters": {
+                    "checks": [
+                        "html5-validity",
+                        "jsonld-syntax",
+                        "rdfa-annotations",
+                        "accessibility"
+                    ]
+                }
+            }
+        ],
+        "workflows": [
+            {
+                "@type": "AIWorkflow",
+                "name": "document-processing",
+                "description": "Complete document processing workflow",
+                "steps": [
+                    {
+                        "agent": "content-validator"
+                    },
+                    {
+                        "agent": "content-extractor"
+                    },
+                    {
+                        "agent": "summarizer"
+                    },
+                    {
+                        "agent": "keyword-analyzer"
+                    }
+                ],
+                "trigger": {
+                    "event": "manual"
+                }
+            },
+            {
+                "@type": "AIWorkflow",
+                "name": "translation-workflow",
+                "description": "Translate document to another language",
+                "steps": [
+                    {
+                        "agent": "translator",
+                        "parameters": {
+                            "targetLanguage": "en"
+                        }
+                    },
+                    {
+                        "agent": "content-validator"
+                    }
+                ],
+                "trigger": {
+                    "event": "manual"
+                }
+            }
+        ],
+        "policies": {
+            "privacy": {
+                "allowExternalCalls": false,
+                "dataRetention": "none"
+            },
+            "security": {
+                "sandboxed": true,
+                "allowedOrigins": []
+            }
+        }
+    }
+    </script>
+</body>
+</html>

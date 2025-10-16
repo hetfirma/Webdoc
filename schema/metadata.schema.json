@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://webdoc.org/schema/metadata/v1",
+  "title": "Webdoc Metadata Schema",
+  "description": "JSON Schema voor Webdoc metadata (JSON-LD)",
+  "type": "object",
+  "required": ["@context", "@type", "name"],
+  "properties": {
+    "@context": {
+      "description": "JSON-LD context voor vocabulary mapping",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["https://schema.org", "http://schema.org"]
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "@type": {
+      "description": "Schema.org type van het document",
+      "type": "string",
+      "examples": [
+        "Article",
+        "Report",
+        "CreativeWork",
+        "TechArticle",
+        "ScholarlyArticle"
+      ]
+    },
+    "name": {
+      "description": "Titel van het document",
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "description": "Auteur van het document",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["@type", "name"],
+          "properties": {
+            "@type": {
+              "type": "string",
+              "enum": ["Person", "Organization"]
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "affiliation": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "const": "Organization"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      ]
+    },
+    "datePublished": {
+      "description": "Publicatiedatum (ISO 8601)",
+      "type": "string",
+      "format": "date-time"
+    },
+    "dateModified": {
+      "description": "Laatste wijzigingsdatum (ISO 8601)",
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "description": "Versienummer van het document",
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+    },
+    "inLanguage": {
+      "description": "Taalcode (ISO 639-1)",
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+      "examples": ["nl", "en", "nl-NL", "en-US"]
+    },
+    "description": {
+      "description": "Korte beschrijving van het document",
+      "type": "string"
+    },
+    "keywords": {
+      "description": "Trefwoorden",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "license": {
+      "description": "Licentie URL",
+      "type": "string",
+      "format": "uri"
+    },
+    "abstract": {
+      "description": "Abstract of samenvatting",
+      "type": "string"
+    },
+    "isPartOf": {
+      "description": "Deel van een grotere collectie",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "citation": {
+      "description": "Citaties",
+      "oneOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      ]
+    },
+    "publisher": {
+      "description": "Uitgever",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  }
+}

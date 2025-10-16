@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="nl" vocab="http://schema.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Impact van Webstandaarden op Documentformaten</title>
+    
+    <!-- JSON-LD Metadata -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "name": "De Impact van Webstandaarden op Documentformaten: Een Analyse van Webdoc",
+        "author": [
+            {
+                "@type": "Person",
+                "name": "Dr. Anna Pieters",
+                "email": "a.pieters@universiteit.nl",
+                "affiliation": {
+                    "@type": "Organization",
+                    "name": "Universiteit van Amsterdam",
+                    "department": "Faculteit der Geesteswetenschappen"
+                }
+            },
+            {
+                "@type": "Person",
+                "name": "Prof. Dr. Jan de Vries",
+                "email": "j.devries@universiteit.nl",
+                "affiliation": {
+                    "@type": "Organization",
+                    "name": "Universiteit van Amsterdam",
+                    "department": "Informatica Instituut"
+                }
+            }
+        ],
+        "datePublished": "2025-10-16T00:00:00Z",
+        "dateModified": "2025-10-16T00:00:00Z",
+        "version": "1.0.0",
+        "inLanguage": "nl",
+        "abstract": "Dit artikel onderzoekt de evolutie van documentformaten en presenteert Webdoc als een open, uitbreidbaar formaat gebaseerd op webstandaarden. We analyseren de technische basis, praktische toepassingen en toekomstige ontwikkelingen van dit nieuwe formaat.",
+        "keywords": ["webdoc", "documentformaten", "webstandaarden", "HTML5", "JSON-LD", "RDFa", "semantisch web"],
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "isPartOf": {
+            "@type": "PublicationIssue",
+            "issueNumber": "3",
+            "isPartOf": {
+                "@type": "PublicationVolume",
+                "volumeNumber": "12",
+                "isPartOf": {
+                    "@type": "Periodical",
+                    "name": "Journal of Web Technologies",
+                    "issn": "1234-5678"
+                }
+            }
+        },
+        "citation": [
+            {
+                "@type": "ScholarlyArticle",
+                "name": "JSON-LD: A JSON-based Serialization for Linked Data",
+                "author": "Manu Sporny et al.",
+                "datePublished": "2014"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Document Stijl -->
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #4a5568;
+            --accent-color: #2b6cb0;
+            --background-color: #ffffff;
+            --paper-background: #fafafa;
+            --border-color: #e2e8f0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.8;
+            color: var(--primary-color);
+            background-color: var(--paper-background);
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        article {
+            background: var(--background-color);
+            padding: 3rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            line-height: 1.3;
+            margin: 0 0 1.5rem 0;
+            color: var(--primary-color);
+        }
+        
+        .authors {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+        
+        .author-name {
+            font-weight: 600;
+        }
+        
+        .affiliation {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        
+        .metadata {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        
+        .abstract {
+            background: #f7fafc;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+        
+        .abstract h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-style: normal;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin: 1rem 0;
+            text-align: justify;
+        }
+        
+        .figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .figure-caption {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        
+        .references {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+        }
+        
+        .references h2 {
+            font-size: 1.3rem;
+        }
+        
+        .reference-item {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            text-indent: -2rem;
+        }
+        
+        code {
+            background: #edf2f7;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            article {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            article {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            p {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Document Inhoud met RDFa annotaties -->
+    <article typeof="ScholarlyArticle">
+        <header>
+            <h1 property="headline">
+                De Impact van Webstandaarden op Documentformaten: Een Analyse van Webdoc
+            </h1>
+            
+            <div class="authors">
+                <div property="author" typeof="Person">
+                    <span class="author-name" property="name">Dr. Anna Pieters</span><sup>1</sup>
+                </div>
+                <div property="author" typeof="Person">
+                    <span class="author-name" property="name">Prof. Dr. Jan de Vries</span><sup>2</sup>
+                </div>
+            </div>
+            
+            <div class="affiliation">
+                <p><sup>1</sup>Faculteit der Geesteswetenschappen, Universiteit van Amsterdam</p>
+                <p><sup>2</sup>Informatica Instituut, Universiteit van Amsterdam</p>
+            </div>
+            
+            <div class="metadata">
+                <span>Gepubliceerd: <time property="datePublished" datetime="2025-10-16">16 oktober 2025</time></span> |
+                <span property="license">Licentie: CC BY 4.0</span> |
+                <span property="version">Versie 1.0.0</span>
+            </div>
+        </header>
+        
+        <div property="articleBody">
+            <section class="abstract">
+                <h2>Abstract</h2>
+                <p property="abstract">
+                    Dit artikel onderzoekt de evolutie van documentformaten en presenteert Webdoc 
+                    als een open, uitbreidbaar formaat gebaseerd op webstandaarden. We analyseren 
+                    de technische basis van Webdoc, die gebruik maakt van HTML5, JSON-LD en RDFa 
+                    om inhoud, metadata, stijl, semantiek en AI-agent integratie in één container 
+                    samen te brengen. Onze analyse toont aan dat deze aanpak significante voordelen 
+                    biedt ten opzichte van traditionele proprietary formaten, met name op het gebied 
+                    van interoperabiliteit, duurzaamheid en machine-leesbaarheid. We presenteren 
+                    praktische toepassingen en bespreken toekomstige ontwikkelingen in het domein 
+                    van webgebaseerde documentformaten.
+                </p>
+                <p>
+                    <strong>Trefwoorden:</strong> 
+                    <span property="keywords">webdoc, documentformaten, webstandaarden, HTML5, JSON-LD, RDFa, semantisch web</span>
+                </p>
+            </section>
+            
+            <section id="introductie">
+                <h2>1. Introductie</h2>
+                <p>
+                    De digitalisering van documentatie heeft geleid tot een proliferatie van 
+                    documentformaten, elk met hun eigen sterke en zwakke punten. Proprietary 
+                    formaten zoals Microsoft Word (.docx) en Adobe PDF domineren de markt, 
+                    maar vertonen significante beperkingen op het gebied van openheid, 
+                    uitbreidbaarheid en machine-leesbaarheid (Smith, 2023).
+                </p>
+                <p>
+                    In dit artikel introduceren we Webdoc, een nieuw documentformaat dat 
+                    volledig gebaseerd is op open webstandaarden. Door gebruik te maken van 
+                    HTML5 voor structuur, JSON-LD voor metadata en RDFa voor semantische 
+                    annotaties, biedt Webdoc een modern alternatief dat de voordelen van 
+                    webstandaarden combineert met de functionaliteit van traditionele 
+                    documentformaten.
+                </p>
+            </section>
+            
+            <section id="technische-basis">
+                <h2>2. Technische Basis</h2>
+                
+                <h3>2.1 HTML5 als Container</h3>
+                <p>
+                    HTML5 vormt de basis van Webdoc documenten. Dit biedt diverse voordelen:
+                    de formaat is universeel ondersteund door moderne browsers, het is een 
+                    open standaard beheerd door het W3C, en het ondersteunt semantische 
+                    markup die de structuur van documenten expliciet maakt.
+                </p>
+                
+                <h3>2.2 JSON-LD voor Metadata</h3>
+                <p>
+                    JSON-LD (JSON for Linking Data) wordt gebruikt voor het embedded 
+                    opslaan van gestructureerde metadata. Dit maakt gebruik van het 
+                    Schema.org vocabulary om een rijke set aan metadata types te 
+                    ondersteunen, van auteursinformatie tot bibliografische referenties.
+                </p>
+                
+                <h3>2.3 RDFa voor Semantische Annotaties</h3>
+                <p>
+                    RDFa (Resource Description Framework in Attributes) maakt het mogelijk 
+                    om inline semantische annotaties toe te voegen aan HTML elementen. 
+                    Hierdoor wordt de inhoud machine-leesbaar zonder de menselijke 
+                    leesbaarheid te beïnvloeden.
+                </p>
+                
+                <div class="figure" typeof="ImageObject">
+                    <div style="border: 2px solid var(--border-color); padding: 2rem; background: #f7fafc;">
+                        <p style="text-align: center; margin: 0;">[Figuur 1: Webdoc Architectuur]</p>
+                    </div>
+                    <p class="figure-caption" property="caption">
+                        <strong>Figuur 1:</strong> Schematische weergave van de Webdoc architectuur 
+                        met HTML5 als basis, JSON-LD voor metadata en RDFa voor semantische annotaties.
+                    </p>
+                </div>
+            </section>
+            
+            <section id="vergelijking">
+                <h2>3. Vergelijking met Bestaande Formaten</h2>
+                <p>
+                    Tabel 1 toont een vergelijking tussen Webdoc en andere populaire 
+                    documentformaten op verschillende criteria.
+                </p>
+                
+                <table typeof="Table">
+                    <caption><strong>Tabel 1:</strong> Vergelijking van documentformaten</caption>
+                    <thead>
+                        <tr>
+                            <th>Criterium</th>
+                            <th>Webdoc</th>
+                            <th>PDF</th>
+                            <th>DOCX</th>
+                            <th>Markdown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Open Standaard</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Machine-leesbaar</td>
+                            <td>✓</td>
+                            <td>~</td>
+                            <td>~</td>
+                            <td>✗</td>
+                        </tr>
+                        <tr>
+                            <td>Embedded Metadata</td>
+                            <td>✓</td>
+                            <td>~</td>
+                            <td>✓</td>
+                            <td>✗</td>
+                        </tr>
+                        <tr>
+                            <td>Styling Support</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✗</td>
+                        </tr>
+                        <tr>
+                            <td>Self-contained</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                        </tr>
+                        <tr>
+                            <td>AI Integration</td>
+                            <td>✓</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>
+                    Zoals blijkt uit Tabel 1, combineert Webdoc de sterke punten van 
+                    verschillende formaten terwijl het unieke features toevoegt zoals 
+                    native AI-agent integratie.
+                </p>
+            </section>
+            
+            <section id="ai-integratie">
+                <h2>4. AI-Agent Integratie</h2>
+                <p>
+                    Een van de meest innovatieve aspecten van Webdoc is de ingebouwde 
+                    ondersteuning voor AI-agent configuratie. Documenten kunnen specificeren 
+                    hoe AI-agents de inhoud moeten verwerken, extraheren of transformeren.
+                </p>
+                <p>
+                    Dit maakt diverse toepassingen mogelijk:
+                </p>
+                <ul>
+                    <li>Automatische samenvatting en indexering</li>
+                    <li>Content extractie en transformatie</li>
+                    <li>Meertalige vertaling</li>
+                    <li>Metadata verrijking</li>
+                    <li>Validatie en kwaliteitscontrole</li>
+                </ul>
+            </section>
+            
+            <section id="praktische-toepassingen">
+                <h2>5. Praktische Toepassingen</h2>
+                
+                <h3>5.1 Wetenschappelijke Publicaties</h3>
+                <p>
+                    Webdoc is bijzonder geschikt voor wetenschappelijke publicaties door 
+                    de uitgebreide metadata ondersteuning en semantische annotaties die 
+                    citatie-analyse en automatische indexering faciliteren.
+                </p>
+                
+                <h3>5.2 Technische Documentatie</h3>
+                <p>
+                    Voor technische documentatie biedt Webdoc voordelen door de combinatie 
+                    van menselijk-leesbare content met machine-leesbare annotaties, wat 
+                    automatische documentatie generatie en synchronisatie mogelijk maakt.
+                </p>
+                
+                <h3>5.3 Content Management Systemen</h3>
+                <p>
+                    Content management systemen kunnen Webdoc documenten efficiënt verwerken 
+                    door de gestandaardiseerde metadata en semantische annotaties, wat 
+                    geavanceerde zoek- en filtermogelijkheden mogelijk maakt.
+                </p>
+            </section>
+            
+            <section id="toekomstig-werk">
+                <h2>6. Toekomstig Werk</h2>
+                <p>
+                    Verdere ontwikkeling van Webdoc zal zich richten op:
+                </p>
+                <ul>
+                    <li>Uitbreiding van het AI-agent framework</li>
+                    <li>Ontwikkeling van validatie tools</li>
+                    <li>Integratie met populaire content management systemen</li>
+                    <li>Creatie van authoring tools</li>
+                    <li>Community-driven vocabulary extensies</li>
+                </ul>
+            </section>
+            
+            <section id="conclusie">
+                <h2>7. Conclusie</h2>
+                <p>
+                    Webdoc vertegenwoordigt een significante stap voorwaarts in de evolutie 
+                    van documentformaten. Door te bouwen op gevestigde webstandaarden en 
+                    moderne features zoals AI-agent integratie toe te voegen, biedt het een 
+                    open, uitbreidbaar en toekomstbestendig alternatief voor proprietary 
+                    formaten.
+                </p>
+                <p>
+                    De combinatie van menselijk-leesbare content, gestructureerde metadata 
+                    en semantische annotaties maakt Webdoc ideaal geschikt voor het moderne 
+                    digitale landschap waar zowel menselijke als geautomatiseerde verwerking 
+                    van documenten essentieel zijn.
+                </p>
+            </section>
+            
+            <section class="references">
+                <h2>Referenties</h2>
+                
+                <div class="reference-item" typeof="ScholarlyArticle" property="citation">
+                    <span property="author" typeof="Person">
+                        <span property="name">Smith, J.</span>
+                    </span>
+                    (<span property="datePublished">2023</span>).
+                    <span property="name">The Evolution of Document Formats in the Digital Age</span>.
+                    <em>Journal of Information Science</em>, 45(2), 123-145.
+                </div>
+                
+                <div class="reference-item" typeof="ScholarlyArticle" property="citation">
+                    <span property="author">Sporny, M., Longley, D., Kellogg, G., Lanthaler, M., & Lindström, N.</span>
+                    (<span property="datePublished">2014</span>).
+                    <span property="name">JSON-LD 1.0: A JSON-based Serialization for Linked Data</span>.
+                    W3C Recommendation. Retrieved from https://www.w3.org/TR/json-ld/
+                </div>
+                
+                <div class="reference-item" typeof="TechArticle" property="citation">
+                    <span property="author">Herman, I., Adida, B., Sporny, M., & Birbeck, M.</span>
+                    (<span property="datePublished">2015</span>).
+                    <span property="name">RDFa 1.1 Primer</span>.
+                    W3C Note. Retrieved from https://www.w3.org/TR/rdfa-primer/
+                </div>
+                
+                <div class="reference-item" typeof="WebPage" property="citation">
+                    <span property="author" typeof="Organization">
+                        <span property="name">W3C</span>
+                    </span>
+                    (<span property="datePublished">2021</span>).
+                    <span property="name">HTML5: A vocabulary and associated APIs for HTML and XHTML</span>.
+                    W3C Recommendation. Retrieved from https://html.spec.whatwg.org/
+                </div>
+            </section>
+        </div>
+    </article>
+</body>
+</html>

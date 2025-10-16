@@ -1,0 +1,222 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://webdoc.org/schema/ai-config/v1",
+  "title": "Webdoc AI Agent Configuration Schema",
+  "description": "JSON Schema voor Webdoc AI-agent configuratie",
+  "type": "object",
+  "required": ["@context", "@type", "version"],
+  "properties": {
+    "@context": {
+      "description": "JSON-LD context voor AI agent vocabulary",
+      "oneOf": [
+        {
+          "type": "string",
+          "const": "https://webdoc.org/context/ai/v1"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "@type": {
+      "description": "Type van de configuratie",
+      "type": "string",
+      "const": "AIAgentConfiguration"
+    },
+    "version": {
+      "description": "Versie van het AI-agent schema",
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "agents": {
+      "description": "Lijst van AI agents",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["@type", "name"],
+        "properties": {
+          "@type": {
+            "description": "Type van de agent",
+            "type": "string",
+            "examples": [
+              "AIAgent",
+              "ContentExtractor",
+              "MetadataEnricher",
+              "Summarizer",
+              "Translator",
+              "Validator"
+            ]
+          },
+          "name": {
+            "description": "Unieke naam van de agent",
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "purpose": {
+            "description": "Doel van de agent",
+            "type": "string"
+          },
+          "instructions": {
+            "description": "Verwerkingsinstructies voor de agent",
+            "type": "string"
+          },
+          "input": {
+            "description": "Input specificatie",
+            "type": "object",
+            "properties": {
+              "selector": {
+                "description": "CSS selector voor input elementen",
+                "type": "string"
+              },
+              "format": {
+                "description": "Input formaat",
+                "type": "string",
+                "enum": ["html", "text", "markdown", "json"]
+              },
+              "source": {
+                "description": "Bron van de input",
+                "type": "string"
+              }
+            }
+          },
+          "output": {
+            "description": "Output specificatie",
+            "type": "object",
+            "properties": {
+              "format": {
+                "description": "Output formaat",
+                "type": "string",
+                "enum": ["html", "text", "markdown", "json"]
+              },
+              "location": {
+                "description": "Locatie voor output",
+                "type": "string"
+              },
+              "selector": {
+                "description": "CSS selector voor output element",
+                "type": "string"
+              }
+            }
+          },
+          "parameters": {
+            "description": "Configuratieparameters",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "model": {
+            "description": "AI model specificatie",
+            "type": "object",
+            "properties": {
+              "provider": {
+                "type": "string",
+                "examples": ["openai", "anthropic", "local"]
+              },
+              "name": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "workflows": {
+      "description": "Lijst van workflows die agents combineren",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["@type", "name", "steps"],
+        "properties": {
+          "@type": {
+            "description": "Type van de workflow",
+            "type": "string",
+            "const": "AIWorkflow"
+          },
+          "name": {
+            "description": "Naam van de workflow",
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "description": {
+            "description": "Beschrijving van de workflow",
+            "type": "string"
+          },
+          "steps": {
+            "description": "Workflow stappen",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["agent"],
+              "properties": {
+                "agent": {
+                  "description": "Naam van de agent om uit te voeren",
+                  "type": "string"
+                },
+                "condition": {
+                  "description": "Voorwaarde voor uitvoering",
+                  "type": "string"
+                },
+                "parameters": {
+                  "description": "Override parameters voor deze stap",
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "trigger": {
+            "description": "Trigger voor de workflow",
+            "type": "object",
+            "properties": {
+              "event": {
+                "type": "string",
+                "enum": ["onload", "onchange", "manual"]
+              },
+              "selector": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "policies": {
+      "description": "Beleidsregels voor agent uitvoering",
+      "type": "object",
+      "properties": {
+        "privacy": {
+          "description": "Privacy instellingen",
+          "type": "object",
+          "properties": {
+            "allowExternalCalls": {
+              "type": "boolean",
+              "default": false
+            },
+            "dataRetention": {
+              "type": "string",
+              "enum": ["none", "session", "persistent"]
+            }
+          }
+        },
+        "security": {
+          "description": "Beveiligingsinstellingen",
+          "type": "object",
+          "properties": {
+            "sandboxed": {
+              "type": "boolean",
+              "default": true
+            },
+            "allowedOrigins": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
